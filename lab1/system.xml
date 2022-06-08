@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE system SYSTEM "system.dtd">
+<!DOCTYPE BPMN-model SYSTEM "system.dtd">
 
 <BPMN-model xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="system.xsd">
     <model-name>Example</model-name>
@@ -14,7 +14,7 @@
                 <event id="event11" type="start">
                     <event-name>Start</event-name>
                 </event>
-            </event>
+            </events>
 
             <actions>
                 <action id="action11">
