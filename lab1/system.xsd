@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+    <xs:element name="BPMN-model">
+    <xs:complexType>
+    <xs:sequence>   
+
+        <xs:element name="model-name" type="xs:string"/>
+        <xs:element name="author" type="xs:string"/>
+        <xs:element name="date" type="xs:date"/>
+        
+        <xs:element name="tracks">
+        <xs:complexType>
+        <xs:sequence>
+            <xs:element name="track">
+            <xs:complexType>
+                <xs:sequence>
+                <xs:element name="track-name" type="xs:string"/>
+                <xs:element name="events">
+                <xs:complexType>
+                <xs:sequence>
+                <xs:element name="event">
+                <xs:complexType>
+                <xs:sequence>
+                <xs:element name="event-name" type="xs:string"/>
+                </xs:sequence>
+                <xs:attribute name="id" type="xs:string" use="required"/>
+                <xs:attribute name="type" type="start | intermediate | end" />
+            </xs:complexType>
+            </xs:element>
+        </xs:sequence>
+        </xs:complexType>
+        </xs:element>
+
+        <xs:element name="actions">
+        <xs:complexType>
+        <xs:sequence>                              
+            <xs:element name="action">
+            <xs:complexType>
+                <xs:sequence>
+                <xs:element name="operation" type="xs:string"/>
+                </xs:sequence>
+                <xs:attribute name="id" type="xs:string" use="required"/>
+            </xs:complexType>
+            </xs:element>
+        </xs:sequence>
+        </xs:complexType>
+        </xs:element>
+
+        <xs:element name="forks">
+        <xs:complexType>
+        <xs:sequence>
+            <xs:element name="fork">
+            <xs:complexType>
+            <xs:sequence>
+            <xs:element name="condition" type="xs:string"/>
+            </xs:sequence>
+            <xs:attribute name="id" type="xs:string" use="required"/>
+            </xs:complexType>
+            </xs:element>
+            </xs:sequence>
+            </xs:complexType>
+            </xs:element>
+        </xs:sequence>
+        </xs:complexType>
+        </xs:element>
+
+        </xs:sequence>
+        </xs:complexType>
+        </xs:element>
+
+        <xs:element name="streams">
+        <xs:complexType>
+        <xs:sequence>
+            <xs:element name="from" type="Item" />
+            <xs:complexType name="Item">
+            <xs:attribute name="id" type="xs:string" use="required"/>
+            <xs:attribute ref="event11"/>
+            <xs:attribute name="type" type="action | fork | event" />
+            </xs:complexType>
+            <xs:attribute name="to" type="Item" />
+            <xs:complexType name="Item">
+            <xs:attribute name="id" type="xs:string" use="required"/>
+            <xs:attribute ref="event11"/>
+            <xs:attribute name="type" type="action | fork | event" />
+            </xs:complexType>
+            <xs:element name="stream-name" type="xs:string"/>
+        </xs:sequence>
+        </xs:complexType>
+        </xs:element>
+
+    </xs:sequence>
+    </xs:complexType>
+    </xs:element>
+</xs:schema>

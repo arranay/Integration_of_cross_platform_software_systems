@@ -1,0 +1,40 @@
+<!DOCTYPE INFORMATION_SYSTEM_DESIGN [
+
+<!ELEMENT BPMN-model (model-name, author, date, tracks, streams)>
+<!ELEMENT model-name (PCDATA)>
+<!ELEMENT author (PCDATA | EMPTY)>
+<!ELEMENT date (PCDATA | EMPTY)>
+<!ELEMENT tracks (track+)>
+<!ELEMENT streams (stream*)>
+
+<!ELEMENT track (track-name, actions, events, forks)>
+<!ATTLIST track id ID #REQUIRED>
+<!ELEMENT track-name (PCDATA)>
+<!ELEMENT actions (action*)>
+<!ELEMENT forks (fork*)>
+<!ELEMENT events (event*)>
+
+<!ELEMENT action (operation)>
+<!ATTLIST action id ID #REQUIRED>
+<!ELEMENT operation (PCDATA)>
+
+<!ELEMENT fork (condition)>
+<!ATTLIST fork id ID #REQUIRED>
+<!ELEMENT condition (PCDATA)>
+
+<!ELEMENT event (event-name)>
+<!ATTLIST event id ID #REQUIRED>
+<!ATTLIST event type (start | intermediate | end)>
+<!ELEMENT event-name (PCDATA | EMPTY)>
+
+<!ENTITY %item>
+<!ATTLIST %item id ID #REQUIRED>
+<!ATTLIST %item type (action | fork | event)>
+<!ATTLIST %item item-id IDREF>
+
+<!ELEMENT stream (from, to, stream-name)>
+<!ATTLIST stream id ID #REQUIRED>
+<!ELEMENT from (%item)>
+<!ELEMENT to (%item)>
+<!ELEMENT stream-name (PCDATA | EMPTY)>
+]>
