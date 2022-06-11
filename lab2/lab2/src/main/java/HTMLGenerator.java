@@ -117,7 +117,7 @@ public class HTMLGenerator {
 
         model.tracks.forEach(track -> {
             try {
-                tHandler.startElement("", "", "tr class=\"track\"", new AttributesImpl());
+                tHandler.startElement("", "", "tr", new AttributesImpl());
 
                 tHandler.startElement("", "", "td  class=\"track\"", new AttributesImpl());
                 tHandler.characters(track.name.toCharArray(), 0, track.name.length());
