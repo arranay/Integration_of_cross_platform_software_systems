@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE BPMN-model SYSTEM "system.dtd">
 
 <BPMN-model xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="system.xsd">
     <model-name>Example</model-name>

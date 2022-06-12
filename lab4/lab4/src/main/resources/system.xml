@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<BPMN-model xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="system.xsd">
+    <author>Valeria Khlyzova</author>
+    <date>2022-06-06</date>
+    <model-name>Example</model-name>
+
+    <streams>
+        <stream id="stream1">
+            <from id="from1" type="event" item-id="event11" />
+            <to id="to1" type="action" item-id="action11" />
+        </stream>
+        <stream id="stream2">
+            <from id="from2" type="action" item-id="action11" />
+            <to id="to2" type="action" item-id="action21" />
+        </stream>
+        <stream id="stream3">
+            <from id="from3" type="action" item-id="action21" />
+            <to id="to3" type="fork" item-id="fork21" />
+        </stream>
+        <stream id="stream4">
+            <from id="from4" type="fork" item-id="fork21" />
+            <stream-name>no</stream-name>
+            <to id="to4" type="action" item-id="action23" />
+        </stream>
+        <stream id="stream5">
+            <from id="from5" type="fork" item-id="fork21" />
+            <stream-name>yes</stream-name>
+            <to id="to5" type="action" item-id="action22" />
+        </stream>
+        <stream id="stream6">
+            <from id="from6" type="action" item-id="action22" />
+            <to id="to6" type="event" item-id="event21" />
+        </stream>
+        <stream id="stream7">
+            <from id="from7" type="action" item-id="action23" />
+            <to id="to7" type="event" item-id="event21" />
+        </stream>
+    </streams>
+
+    <tracks>
+        <track id="track1">
+            <actions>
+                <action id="action11">
+                    <operation>Order and pay for the product</operation>
+                    <time>5000</time>
+                </action>
+            </actions>
+
+            <events>
+                <event id="event11" type="start">
+                    <event-name>Start</event-name>
+                </event>
+            </events>
+
+            <track-name>Customer</track-name>
+        </track>
+
+        <track id="track2">
+            <actions>
+                <action id="action21">
+                    <operation>Check the product in storehouse</operation>
+                    <time>7000</time>
+                </action>
+                <action id="action22">
+                    <operation>Send the ordered product</operation>
+                    <time>5000</time>
+                </action>
+                <action id="action23">
+                    <operation>Return money</operation>
+                    <time>3000</time>
+                </action>
+            </actions>
+
+            <events>
+                <event id="event21" type="end">
+                    <event-name>End</event-name>
+                </event>
+            </events>
+
+            <forks>
+                <fork id="fork21">
+                    <condition>is the product in storehouse?</condition>
+                </fork>
+            </forks>
+            <track-name>Seller</track-name>
+        </track>
+    </tracks>
+</BPMN-model>
