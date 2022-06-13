@@ -14,9 +14,10 @@
 <!ELEMENT forks (fork*)>
 <!ELEMENT events (event*)>
 
-<!ELEMENT action (operation)>
+<!ELEMENT action (operation, time)>
 <!ATTLIST action id ID #REQUIRED>
 <!ELEMENT operation (PCDATA)>
+<!ELEMENT time (PCDATA)>
 
 <!ELEMENT fork (condition)>
 <!ATTLIST fork id ID #REQUIRED>
