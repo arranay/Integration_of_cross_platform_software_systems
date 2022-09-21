@@ -1,0 +1,137 @@
+{
+  "name" : "Example",
+  "author" : "Valeria Khlyzova",
+  "date" : "2022-06-06",
+  "tracks" : [ {
+    "id" : "track1",
+    "name" : "Customer",
+    "events" : [ {
+      "id" : "event11",
+      "name" : "Start",
+      "type" : "start"
+    } ],
+    "actions" : [ {
+      "id" : "action11",
+      "operation" : "Order and pay for the product",
+      "time" : 5000
+    } ],
+    "forks" : [ ]
+  }, {
+    "id" : "track2",
+    "name" : "Seller",
+    "events" : [ {
+      "id" : "event21",
+      "name" : "End",
+      "type" : "end"
+    } ],
+    "actions" : [ {
+      "id" : "action21",
+      "operation" : "Check the product in storehouse",
+      "time" : 7000
+    }, {
+      "id" : "action22",
+      "operation" : "Send the ordered product",
+      "time" : 5000
+    }, {
+      "id" : "action23",
+      "operation" : "Return money",
+      "time" : 3000
+    } ],
+    "forks" : [ {
+      "id" : "fork21",
+      "condition" : "is the product in storehouse?"
+    } ]
+  } ],
+  "streams" : [ {
+    "id" : "stream1",
+    "from" : {
+      "id" : "from1",
+      "type" : "event",
+      "itemId" : "event11"
+    },
+    "to" : {
+      "id" : "to1",
+      "type" : "action",
+      "itemId" : "action11"
+    },
+    "name" : null
+  }, {
+    "id" : "stream2",
+    "from" : {
+      "id" : "from2",
+      "type" : "action",
+      "itemId" : "action11"
+    },
+    "to" : {
+      "id" : "to2",
+      "type" : "action",
+      "itemId" : "action21"
+    },
+    "name" : null
+  }, {
+    "id" : "stream3",
+    "from" : {
+      "id" : "from3",
+      "type" : "action",
+      "itemId" : "action21"
+    },
+    "to" : {
+      "id" : "to3",
+      "type" : "fork",
+      "itemId" : "fork21"
+    },
+    "name" : null
+  }, {
+    "id" : "stream4",
+    "from" : {
+      "id" : "from4",
+      "type" : "fork",
+      "itemId" : "fork21"
+    },
+    "to" : {
+      "id" : "to4",
+      "type" : "action",
+      "itemId" : "action23"
+    },
+    "name" : "no"
+  }, {
+    "id" : "stream5",
+    "from" : {
+      "id" : "from5",
+      "type" : "fork",
+      "itemId" : "fork21"
+    },
+    "to" : {
+      "id" : "to5",
+      "type" : "action",
+      "itemId" : "action22"
+    },
+    "name" : "yes"
+  }, {
+    "id" : "stream6",
+    "from" : {
+      "id" : "from6",
+      "type" : "action",
+      "itemId" : "action22"
+    },
+    "to" : {
+      "id" : "to6",
+      "type" : "event",
+      "itemId" : "event21"
+    },
+    "name" : null
+  }, {
+    "id" : "stream7",
+    "from" : {
+      "id" : "from7",
+      "type" : "action",
+      "itemId" : "action23"
+    },
+    "to" : {
+      "id" : "to7",
+      "type" : "event",
+      "itemId" : "event21"
+    },
+    "name" : null
+  } ]
+}

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <BPMN-model xsi:schemaLocation="src/main/resources/system.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <author>Changed author</author>
-    <date>2022-06-13</date>
+    <date>2022-06-14</date>
     <model-name>Changed name</model-name>
     <streams>
         <stream id="stream1">
