@@ -66,7 +66,7 @@ public class BPMNController {
         } catch (Exception e) {
             System.out.println("ERROR: " + e);
             Error error = new Error(HttpStatus.INTERNAL_SERVER_ERROR, e.getMessage());
-            return new ResponseEntity<Object>(null, HttpStatus.INTERNAL_SERVER_ERROR);
+            return new ResponseEntity<Object>(error, HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
 }
