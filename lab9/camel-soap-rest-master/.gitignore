@@ -1,0 +1,5 @@
+.idea
+camel-soap-rest.iml
+target
+log
+*.log
