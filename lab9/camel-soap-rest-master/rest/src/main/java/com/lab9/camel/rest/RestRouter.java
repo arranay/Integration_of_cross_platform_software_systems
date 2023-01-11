@@ -6,10 +6,9 @@ import org.apache.camel.model.rest.RestBindingMode;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
-import java.util.List;
 
 @Component
-public class RestRouter  extends RouteBuilder{
+public class RestRouter extends RouteBuilder{
     @Override
     public void configure() throws Exception {
         restConfiguration()

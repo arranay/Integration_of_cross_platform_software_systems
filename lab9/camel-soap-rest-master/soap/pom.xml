@@ -58,7 +58,7 @@
                 </configuration>
             </plugin>
         </plugins>
-        <finalName>producer</finalName>
+        <finalName>soap</finalName>
     </build>
 
 

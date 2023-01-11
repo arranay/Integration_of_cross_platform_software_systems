@@ -4,8 +4,6 @@ import com.lab9.camel.model.TrackService;
 import org.apache.camel.builder.RouteBuilder;
 import org.springframework.stereotype.Component;
 
-import java.util.ArrayList;
-
 @Component
 public class SoapRouter extends RouteBuilder {
 
@@ -14,15 +12,12 @@ public class SoapRouter extends RouteBuilder {
     @Override
     public void configure() throws Exception {
         from(url).routeId("track-soap")
-                .to("log:input")
                 .recipientList(simple("direct:${header.operationName}"));
 
        from("direct:getTrack")
-                .bean(GetTrackProcessor.class)
-                .to("log:output");
+                .bean(GetTrackProcessor.class);
 
        from("direct:addTrack")
-               .bean(AddTrackProcessor.class)
-               .to("log:output");
+               .bean(AddTrackProcessor.class);
     }
 }
