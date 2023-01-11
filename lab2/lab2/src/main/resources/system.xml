@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<BPMN-model xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="system.xsd">
+<BPMN-model
+        xmlns="http://namespace-test.com/BPMN"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="system.xsd">
     <model-name>Example</model-name>
     <author>Valeria Khlyzova</author>
     <date>2022-06-06</date>
